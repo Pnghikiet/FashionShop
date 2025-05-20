@@ -3,16 +3,19 @@ using FashionShop.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace FashionShop.Infrastructure.Migrations
+namespace FashionShop.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(FashionDbContext))]
-    partial class FashionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250518034501_ChangeMigrationFolderToAnotherPath")]
+    partial class ChangeMigrationFolderToAnotherPath
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,6 +37,9 @@ namespace FashionShop.Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<bool>("Gender")
+                        .HasColumnType("bit");
+
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -49,14 +55,14 @@ namespace FashionShop.Infrastructure.Migrations
                     b.Property<int>("ProductBrandId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductTypeId")
+                    b.Property<int>("ProductSubTypeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ProductBrandId");
 
-                    b.HasIndex("ProductTypeId");
+                    b.HasIndex("ProductSubTypeId");
 
                     b.ToTable("Products");
                 });
@@ -76,6 +82,28 @@ namespace FashionShop.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ProductBrands");
+                });
+
+            modelBuilder.Entity("FashionShop.Core.Entities.ProductSubType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductTypeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductTypeId");
+
+                    b.ToTable("ProductSubTypes");
                 });
 
             modelBuilder.Entity("FashionShop.Core.Entities.ProductType", b =>
@@ -103,13 +131,24 @@ namespace FashionShop.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("FashionShop.Core.Entities.ProductSubType", "ProductSubType")
+                        .WithMany()
+                        .HasForeignKey("ProductSubTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ProductBrand");
+
+                    b.Navigation("ProductSubType");
+                });
+
+            modelBuilder.Entity("FashionShop.Core.Entities.ProductSubType", b =>
+                {
                     b.HasOne("FashionShop.Core.Entities.ProductType", "ProductType")
                         .WithMany()
                         .HasForeignKey("ProductTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("ProductBrand");
 
                     b.Navigation("ProductType");
                 });

@@ -2,10 +2,10 @@
 
 #nullable disable
 
-namespace FashionShop.Infrastructure.Migrations
+namespace FashionShop.Infrastructure.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class AddProductWithProductBrandAndProductTypeToDb : Migration
+    public partial class ChangeMigrationFolderToAnotherPath : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -37,6 +37,26 @@ namespace FashionShop.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ProductSubTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProductTypeId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductSubTypes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProductSubTypes_ProductTypes_ProductTypeId",
+                        column: x => x.ProductTypeId,
+                        principalTable: "ProductTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
@@ -46,7 +66,8 @@ namespace FashionShop.Infrastructure.Migrations
                     Description = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProductTypeId = table.Column<int>(type: "int", nullable: false),
+                    Gender = table.Column<bool>(type: "bit", nullable: false),
+                    ProductSubTypeId = table.Column<int>(type: "int", nullable: false),
                     ProductBrandId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -59,9 +80,9 @@ namespace FashionShop.Infrastructure.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Products_ProductTypes_ProductTypeId",
-                        column: x => x.ProductTypeId,
-                        principalTable: "ProductTypes",
+                        name: "FK_Products_ProductSubTypes_ProductSubTypeId",
+                        column: x => x.ProductSubTypeId,
+                        principalTable: "ProductSubTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -72,8 +93,13 @@ namespace FashionShop.Infrastructure.Migrations
                 column: "ProductBrandId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_ProductTypeId",
+                name: "IX_Products_ProductSubTypeId",
                 table: "Products",
+                column: "ProductSubTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductSubTypes_ProductTypeId",
+                table: "ProductSubTypes",
                 column: "ProductTypeId");
         }
 
@@ -85,6 +111,9 @@ namespace FashionShop.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "ProductBrands");
+
+            migrationBuilder.DropTable(
+                name: "ProductSubTypes");
 
             migrationBuilder.DropTable(
                 name: "ProductTypes");

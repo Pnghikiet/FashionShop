@@ -19,7 +19,7 @@ namespace FashionShop.Infrastructure.Data.Config
             builder.Property(p => p.Price).IsRequired().HasColumnType("decimal(18,2)");
             builder.Property(p => p.ImageUrl).IsRequired();
             builder.HasOne(p => p.ProductBrand).WithMany().HasForeignKey(b => b.ProductBrandId);
-            builder.HasOne(p => p.ProductType).WithMany().HasForeignKey(b => b.ProductTypeId);
+            builder.HasOne(p => p.ProductSubType).WithMany().HasForeignKey(b => b.ProductSubTypeId);
         }
     }
 }

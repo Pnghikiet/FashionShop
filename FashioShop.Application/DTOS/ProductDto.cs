@@ -1,12 +1,13 @@
-﻿using System;
+﻿using FashionShop.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FashionShop.Core.Entities
+namespace FashionShop.Application.DTOS
 {
-    public class Product
+    public class ProductDto
     {
         public int Id { get; set; }
 
@@ -18,13 +19,9 @@ namespace FashionShop.Core.Entities
 
         public string ImageUrl { get; set; }
 
-        public bool Gender {  get; set; }
+        public string Gender { get; set; }
 
-        public int ProductSubTypeId { get; set; }
-
-        public ProductSubType ProductSubType {get; set;}
-
-        public int ProductBrandId {  get; set; }
+        public ProductSubType ProductSubType { get; set; }
 
         public ProductBrand ProductBrand { get; set; }
     }

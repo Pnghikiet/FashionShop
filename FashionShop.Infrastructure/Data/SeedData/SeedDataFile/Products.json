@@ -1,0 +1,245 @@
+[
+  {
+    "Name": "Nike Zoom Vapor 16 Pro Turf",
+    "Description": "Giày Thể thao Nam Nike Zoom Vapor 16 Pro Turf",
+    "Price": 1500000,
+    "ImageUrl": "Images/Product/Nike_1.png",
+    "Gender": false,
+    "ProductBrandId": 1,
+    "ProductSubTypeId": 1
+  },
+  {
+    "Name": "Nike V2K Run",
+    "Description": "Giày Thể thao Nữ Nike V2K Run",
+    "Price": 1850000,
+    "ImageUrl": "Images/Product/Nike_2.png",
+    "Gender": true,
+    "ProductBrandId": 1,
+    "ProductSubTypeId": 1
+  },
+  {
+    "Name": "Nike Air Max 90 Futura",
+    "Description": "Giày Casual Nike Nike Air Max 90 Futura",
+    "Price": 1700000,
+    "ImageUrl": "Images/Product/Nike_3.png",
+    "Gender": true,
+    "ProductBrandId": 1,
+    "ProductSubTypeId": 2
+  },
+  {
+    "Name": "Nike GPX",
+    "Description": "Áo Thể Thao Không Logo Nike GPX",
+    "Price": 900000,
+    "ImageUrl": "Images/Product/Nike_4.png",
+    "Gender": false,
+    "ProductBrandId": 1,
+    "ProductSubTypeId": 3
+  },
+  {
+    "Name": "Nike Jumpman Crew T-Shirt CJ0922-100",
+    "Description": "Áo Thun Nike Jumpman Crew T-Shirt CJ0922-100",
+    "Price": 850000,
+    "ImageUrl": "Images/Product/Nike_5.png",
+    "Gender": false,
+    "ProductBrandId": 1,
+    "ProductSubTypeId": 4
+  },
+  {
+    "Name": "Nike As M Nsw Nike Trend Overshirt ‘White’ DM5284-030",
+    "Description": "Áo Thun Nike As M Nsw Nike Trend Overshirt ‘White’ DM5284-030 ",
+    "Price": 1200000,
+    "ImageUrl": "Images/Product/Nike_6.png",
+    "Gender": false,
+    "ProductBrandId": 1,
+    "ProductSubTypeId": 4
+  },
+  {
+    "Name": "Nike Df Acd23",
+    "Description": "Quần Thể Thao nike Df Acd23 Short",
+    "Price": 650000,
+    "ImageUrl": "Images/Product/Nike_7.png",
+    "Gender": false,
+    "ProductBrandId": 1,
+    "ProductSubTypeId": 5
+  },
+  {
+    "Name": "Nike Air Jordan",
+    "Description": "Quần Casual Nike Air Jordan",
+    "Price": 1600000,
+    "ImageUrl": "Images/Product/Nike_8.png",
+    "Gender": false,
+    "ProductBrandId": 1,
+    "ProductSubTypeId": 6
+  },
+  {
+    "Name": "Nike Dri-FIT Victory",
+    "Description": "Quần Công sở Nike Air Jordan",
+    "Price": 2000000,
+    "ImageUrl": "Images/Product/Nike_9.png",
+    "Gender": false,
+    "ProductBrandId": 1,
+    "ProductSubTypeId": 1
+  },
+  {
+    "Name": "Puma Hybrid NX",
+    "Description": "Giày Thể Thao Puma Hybrid NX",
+    "Price": 2600000,
+    "ImageUrl": "Images/Product/Puma_1.png",
+    "Gender": false,
+    "ProductBrandId": 2,
+    "ProductSubTypeId": 1
+  },
+  {
+    "Name": "Puma Muse X5 Metal",
+    "Description": "Giày Thể Thao Puma Muse X5 Metal",
+    "Price": 2200000,
+    "ImageUrl": "Images/Product/Puma_2.png",
+    "Gender": true,
+    "ProductBrandId": 2,
+    "ProductSubTypeId": 1
+  },
+  {
+    "Name": "Puma Carina PFS",
+    "Description": "Giày Thể Thao Carina PFS",
+    "Price": 1900000,
+    "ImageUrl": "Images/Product/Puma_3.png",
+    "Gender": true,
+    "ProductBrandId": 2,
+    "ProductSubTypeId": 1
+  },
+  {
+    "Name": "Puma Scuderia Ferrari Drivers",
+    "Description": "Áo Casual Puma Scuderia Ferrari Drivers",
+    "Price": 2400000,
+    "ImageUrl": "Images/Product/Puma_4.png",
+    "Gender": true,
+    "ProductBrandId": 2,
+    "ProductSubTypeId": 4
+  },
+  {
+    "Name": "Puma Essentials Pique's Polo",
+    "Description": "Áo Thể Thao Puma Essentials Pique's Polo",
+    "Price": 2640000,
+    "ImageUrl": "Images/Product/Puma_5.png",
+    "Gender": false,
+    "ProductBrandId": 2,
+    "ProductSubTypeId": 3
+  },
+  {
+    "Name": "Pumba Puma T-Shirt",
+    "Description": "Áo Casual Pumba Puma T-Shirt",
+    "Price": 1950000,
+    "ImageUrl": "Images/Product/Puma_6.png",
+    "Gender": false,
+    "ProductBrandId": 2,
+    "ProductSubTypeId": 3
+  },
+  {
+    "Name": "Puma Iconic T7",
+    "Description": "Quần Thể Thao Puma Iconic T7",
+    "Price": 2100000,
+    "ImageUrl": "Images/Product/Puma_7.png",
+    "Gender": false,
+    "ProductBrandId": 2,
+    "ProductSubTypeId": 5
+  },
+  {
+    "Name": "Puma Drycell Pants",
+    "Description": "Quần Thể Thao Puma Drycell Pants",
+    "Price": 2100000,
+    "ImageUrl": "Images/Product/Puma_8.png",
+    "Gender": false,
+    "ProductBrandId": 2,
+    "ProductSubTypeId": 5
+  },
+  {
+    "Name": "Puma WARDROBE ESS Relaxed 14",
+    "Description": "Quần Casual Puma WARDROBE ESS Relaxed 14",
+    "Price": 2250000,
+    "ImageUrl": "Images/Product/Puma_9.png",
+    "Gender": true,
+    "ProductBrandId": 2,
+    "ProductSubTypeId": 6
+  },
+  {
+    "Name": "Adidas Samba OG",
+    "Description": "Giày Thề Thao Adidas Samba OG",
+    "Price": 2700000,
+    "ImageUrl": "Images/Product/Adidas_1.png",
+    "Gender": false,
+    "ProductBrandId": 3,
+    "ProductSubTypeId": 1
+  },
+  {
+    "Name": "Adidas Runfalcon 3.0",
+    "Description": "Giày Thề Thao Adidas Runfalcon 3.0",
+    "Price": 2250000,
+    "ImageUrl": "Images/Product/Adidas_2.png",
+    "Gender": false,
+    "ProductBrandId": 3,
+    "ProductSubTypeId": 1
+  },
+  {
+    "Name": "Adidas Duramo Speed 2",
+    "Description": "Giày Casual Adidas Duramo Speed 2",
+    "Price": 1600000,
+    "ImageUrl": "Images/Product/Adidas_3.png",
+    "Gender": true,
+    "ProductBrandId": 3,
+    "ProductSubTypeId": 2
+  },
+  {
+    "Name": "Adidas Adicolor Classics 3-Stripes Tee",
+    "Description": "Áo Casual Adidas Adicolor Classics 3-Stripes Tee",
+    "Price": 2000000,
+    "ImageUrl": "Images/Product/Adidas_4.png",
+    "Gender": false,
+    "ProductBrandId": 3,
+    "ProductSubTypeId": 2
+  },
+  {
+    "Name": "Adidas Ultimate365 Speed Stripe",
+    "Description": "Áo Casual Adidas Ultimate365 Speed Stripe",
+    "Price": 2150000,
+    "ImageUrl": "Images/Product/Adidas_5.png",
+    "Gender": false,
+    "ProductBrandId": 3,
+    "ProductSubTypeId": 4
+  },
+  {
+    "Name": "Adidas Originals Twistknit Trefoil",
+    "Description": "Áo Thể Thao Adidas Originals Twistknit Trefoil",
+    "Price": 2550000,
+    "ImageUrl": "Images/Product/Adidas_6.png",
+    "Gender": true,
+    "ProductBrandId": 3,
+    "ProductSubTypeId": 3
+  },
+  {
+    "Name": "Adidas Essentials 3-Stripes Single Jersey",
+    "Description": "Quần Thể Thao Adidas Essentials 3-Stripes Single Jersey",
+    "Price": 2350000,
+    "ImageUrl": "Images/Product/Adidas_7.png",
+    "Gender": false,
+    "ProductBrandId": 3,
+    "ProductSubTypeId": 5
+  },
+  {
+    "Name": "Adidas Neuclassics Sweat",
+    "Description": "Quần Thể Thao Adidas Neuclassics Sweat",
+    "Price": 2200000,
+    "ImageUrl": "Images/Product/Adidas_8.png",
+    "Gender": true,
+    "ProductBrandId": 3,
+    "ProductSubTypeId": 5
+  },
+  {
+    "Name": "Adidas Adilenium Season 3 Zip Washed Denim",
+    "Description": "Quần Casual Adidas Adilenium Season 3 Zip Washed Denim",
+    "Price": 2200000,
+    "ImageUrl": "Images/Product/Adidas_9.png",
+    "Gender": true,
+    "ProductBrandId": 3,
+    "ProductSubTypeId": 6
+  }
+]

@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.5.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -18,7 +19,11 @@
   <ItemGroup>
     <ProjectReference Include="..\FashionShop.Core\FashionShop.Core.csproj" />
     <ProjectReference Include="..\FashionShop.Infrastructure\FashionShop.Infrastructure.csproj" />
-    <ProjectReference Include="..\FashioShop.Application\FashioShop.Application.csproj" />
+    <ProjectReference Include="..\FashioShop.Application\FashionShop.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\Product\" />
   </ItemGroup>
 
 </Project>
