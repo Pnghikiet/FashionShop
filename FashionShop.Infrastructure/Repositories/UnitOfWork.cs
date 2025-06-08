@@ -19,6 +19,8 @@ namespace FashionShop.Infrastructure.Repositories
 
         private IGenericRepository<ProductType>? _productTypeRepo;
 
+        private IGenericRepository<ProductSubType>? _productSubTypeRepo;
+
         public UnitOfWork(FashionDbContext db)
         {
             _db = db;
@@ -29,6 +31,8 @@ namespace FashionShop.Infrastructure.Repositories
         public IGenericRepository<ProductBrand> ProductBrands => _productBrandRepo ??= new GenericRepository<ProductBrand>(_db);
 
         public IGenericRepository<ProductType> ProductTypes => _productTypeRepo ??= new GenericRepository<ProductType>(_db);
+
+        public IGenericRepository<ProductSubType> ProductSubTypes => _productSubTypeRepo ??= new GenericRepository<ProductSubType>(_db);
 
 
         public async Task<int> Complete()

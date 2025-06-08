@@ -1,0 +1,57 @@
+<div class="navbar shadow-sm pt-6">
+    <div class="navbar-start ml-6">
+        <img src="../../../assets/images/Logo/logo_1.png" class="max-h-[50px] h-auto w-auto cursor-pointer" alt="Fashion"
+            [routerLink]="['/']">
+    </div>
+    <div class="navbar-center space-x-4 text-lg">
+        <div >
+            <a class="font-semibold"
+                [ngClass]="{'cursor-pointer hover:text-amber-300 hover:border-b-2 hover:border-amber-300': !homeLink.isActive ,
+                    'pointer-events-none text-amber-300':homeLink.isActive
+                }"
+                [routerLink]="['/']"
+                routerLinkActive #homeLink="routerLinkActive"
+                [routerLinkActiveOptions]="{exact:true}">Trang chủ</a>
+        </div>
+        <div>
+            <a class="font-semibold"
+                [ngClass]="{'cursor-pointer hover:text-amber-300 hover:border-b-2 hover:border-amber-300': !productLink.isActive ,
+                    'pointer-events-none text-amber-300':productLink.isActive
+                }"
+                [routerLink]="['/products']"
+                routerLinkActive #productLink="routerLinkActive"
+                >Sản phẩm</a>
+        </div>
+
+    </div>
+    <div class="navbar-end pr-12 space-x-4">
+        <div class="indicator">
+            <span class="indicator-item badge badge-xs badge-primary rounded-full size-6 text-sm ">9+</span>
+            <button class="btn btn-circle btn-ghost">
+                <i class="fa-solid fa-cart-shopping text-xl"></i>
+            </button>
+        </div>
+        <!-- <div class="dropdown dropdown-center">
+            <div tabindex="0" role="button" class="hover:cursor-pointer">
+                <p class="text">Username <i class="fa-solid fa-caret-down"></i></p>
+            </div>
+            <ul tabindex="0" class="menu dropdown-content bg-base-100 w-30 rounded-box z-1 content-center shadow-sm p-2 mt-2">
+                <li><a>Đăng xuất</a></li>
+            </ul>
+        </div> -->
+        <!-- <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="hover:cursor-pointer"><i class="fa-solid fa-ellipsis"></i></div>
+            <ul tabindex="0" class="menu dropdown-content dropdown-center bg-base-100 w-30 rounded-box z-1 content-center">
+                <li><a>Đăng nhập</a></li>
+                <hr>
+                <li><a>Đăng ký</a></li>
+            </ul>
+        </div> -->
+
+        <div>
+            <a routerLink="/account/login" class="text-blue-500 hover:text-blue-700 underline">Đăng nhập</a>
+            /
+            <a routerLink="/account/register" class="text-blue-500 hover:text-blue-700 underline">Đăng ký</a>
+        </div>
+    </div>
+</div>

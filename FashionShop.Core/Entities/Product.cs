@@ -18,7 +18,7 @@ namespace FashionShop.Core.Entities
 
         public string ImageUrl { get; set; }
 
-        public bool Gender {  get; set; }
+        public string Gender {  get; set; }
 
         public int ProductSubTypeId { get; set; }
 

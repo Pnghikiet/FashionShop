@@ -1,5 +1,9 @@
-﻿using FashionShop.Infrastructure.Data;
+﻿using FashionShop.Core.Entities.Identity;
+using FashionShop.Infrastructure.Data;
 using FashionShop.Infrastructure.Data.SeedData;
+using FashionShop.Infrastructure.Identity;
+using FashionShop.Infrastructure.Identity.SeedData;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,16 +17,27 @@ namespace FashionShop.API.Extensions
     {
         public static async Task SeedDataAsync(this WebApplication app)
         {
-            var scope = app.Services.CreateScope();
+            using(var scope = app.Services.CreateScope())
+            {
 
-            var provider = scope.ServiceProvider;
+                var services = scope.ServiceProvider;
 
-            var context = provider.GetService<FashionDbContext>();
+                var context = services.GetRequiredService<FashionDbContext>();
 
-            await context.Database.MigrateAsync();
+                var userManager = services.GetRequiredService<UserManager<AppUser>>();
 
-            await FashionbSeedData.SeedDataAsync(context);
+                var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
+                var identitycontext = services.GetRequiredService<AppIdentityDbContext>();
+
+                await context.Database.MigrateAsync();
+
+                await identitycontext.Database.MigrateAsync();
+
+                await FashionbSeedData.SeedDataAsync(context);
+
+                await AppIdentitySeedData.SeeddDataAsync(userManager,roleManager);
+            }
         }
     }
 }

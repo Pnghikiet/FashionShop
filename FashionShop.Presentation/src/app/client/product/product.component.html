@@ -1,0 +1,82 @@
+<div class="p-6 container mx-auto space-y-2.5">
+    <div class="flex flex-col space-y-2 mt-3">
+        <label for="" class="text-xl">Tìm kiếm:</label>
+        <div class="flex space-x-3">
+            <input type="text" [value]="!productParam.search ? '' :productParam.search" placeholder="Tìm kiếm ..." class="input w-4xl placeholder:text-lg" #search/>
+            <button class="btn btn-success text-white w-36" (click)="onSearch()">Tìm kiếm</button>
+            <button class="btn btn-warning text-white w-36" (click)="onReset()">Reset</button>
+        </div>
+    </div>
+    <div class="flex space-x-4">
+        <div class="flex flex-col space-y-2" *ngIf="brandSelectOptions">
+            <label class="text-xl">Hãng sản phẩm</label>
+            <select class="select w-[290px]" (change)="onSelected($event,'brand')">
+                <option *ngFor="let brand of brandSelectOptions"
+                [value]="brand.id"
+                [selected]="productParam.brandid"
+                class="text-center">{{brand.name}}</option>
+            </select>
+        </div>
+        <div class="flex flex-col space-y-2" *ngIf="typeSelectOptions">
+            <label class="text-xl">Kiểu sản phẩm</label>
+            <select class="select w-[290px]" (change)="onSelected($event,'type')">
+                <option *ngFor="let type of typeSelectOptions"
+                [value]="type.id"
+                [selected]="productParam.typeId"
+                class="text-center">{{type.name}}</option>
+            </select>
+        </div>
+        <div class="flex flex-col space-y-2" *ngIf="subTypeSelectOptions">
+            <label class="text-xl">Thể loại</label>
+            <select class="select w-[290px]" (change)="onSelected($event,'subtype')">
+                <ng-container *ngFor="let subType of subTypeSelectOptions">
+                    <option 
+                    *ngIf="productParam.typeId == subType.productType || subType.id === 0"
+                    [value]="subType.id"
+                    [selected]="productParam.subTypeId"
+                    class="text-center">{{subType.name}}</option>
+                </ng-container>
+            </select>
+        </div>
+        <div class="flex flex-col space-y-2">
+            <label class="text-xl">Giới tính</label>
+            <select class="select w-[290px]" (change)="onSelected($event,'gender')">
+                <option *ngFor="let gender of genderSelectOptions"
+                [selected]="gender.value === productParam.gender"
+                [value]="gender.value"
+                class="text-center">{{gender.name}}</option>
+            </select>
+        </div>
+    </div>
+    
+    <br>
+    <hr>
+    <br>
+    <div class="relative p-4">
+        <h1 class="text-center font-bold text-3xl">SẢN PHẨM</h1>
+        <div class="absolute top-3 flex flex-row space-x-3.5 items-center">
+            <label class="text-xl">Sắp xếp theo:</label>
+            <select class="select w-[250px]" (change)="onSortSelected($event)">
+                <option *ngFor="let sort of sortSelectoptions"
+                [value]="sort.value"
+                [selected]="sort.value === productParam.sort"
+                class="text-md">{{sort.name}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-4 pt-4 gap-y-7" *ngIf="products.length > 0; else ProductsEmpty">
+        <ng-container *ngFor="let product of products">
+            <app-product-item [productItem]="product"></app-product-item>
+        </ng-container>
+    </div>
+    <ng-template #ProductsEmpty>
+        <h2 class="text-center">Không có sản phẩm nào phù hợp</h2>
+    </ng-template>
+    
+
+    <ng-container *ngIf="totalItem">
+        <app-pager [itemPerPage]="productParam.pageSize" [pageIndex]="productParam.pageIndex" [totalItem]="totalItem" (PageChanged)="onPageChanged($event)"></app-pager>
+    </ng-container>
+
+</div>

@@ -1,0 +1,12 @@
+<div class="min-h-screen flex flex-col">
+    <header>
+        <app-navbar></app-navbar>
+    </header>
+    <main class="flex-1">
+        <router-outlet></router-outlet>
+    </main>
+    <footer class="px-7 py-12 bg-neutral-600">
+        <app-footer></app-footer>
+    </footer>
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "large" color = "#fff" type = "ball-fall" [fullScreen] = "true"></ngx-spinner>

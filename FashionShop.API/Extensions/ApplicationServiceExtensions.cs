@@ -12,14 +12,27 @@ namespace FashionShop.API.Extensions
         {
             services.AddDbContext<FashionDbContext>(options =>
             {
-                options.UseSqlServer(config.GetConnectionString("Default"));
+                options.UseSqlServer(config.GetConnectionString("DefaultConnection"));
             });
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddAutoMapper(typeof(ExtensionMarker).Assembly);
 
+            services.AddCors(opt => opt.AddPolicy("AllowCors", policy =>
+            {
+                policy.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+            }));
+
             services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(ExtensionMarker).Assembly));
+
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("CorsAllow", policy =>
+                {
+                    policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                });
+            });
 
             return services;
         }

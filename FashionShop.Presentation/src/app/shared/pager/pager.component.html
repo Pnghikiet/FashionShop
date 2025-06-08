@@ -1,0 +1,16 @@
+<div class="pt-4 pb-8 mt-5 ml-auto mr-auto max-w-fit ">
+    <div class="join">
+        <button (click)="onPreviousPageChange()" [ngClass]="{'btn-disabled':pageIndex===1}" class="join-item btn btn-ghost text-lg"><i class="fa-solid fa-arrow-left"></i></button>
+        <ng-container *ngFor="let item of getVisiblePages()">
+            <button
+            *ngIf="item!== null"
+            class="join-item btn btn-ghost text-lg"
+            [ngClass]="{'btn-active btn-primary text-white':item === pageIndex}"
+            [disabled]="item === pageIndex"
+            (click)="onPageChange(item)">{{item}}</button>
+            <button *ngIf="item === null" class="btn btn-ghost btn-disabled">...</button>
+        </ng-container>
+        
+        <button (click)="onForwardPageChange()" [ngClass]="{'btn-disabled':pageIndex===totalPage}" class="join-item btn btn-ghost text-lg"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+</div>
