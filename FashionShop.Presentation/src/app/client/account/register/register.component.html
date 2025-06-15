@@ -1,1 +1,50 @@
-<p>register works!</p>
+<div class="container p-6 mx-auto mt-10">
+    <div class="h-auto flex flex-col items-center justify-center ">
+        <h1 class="text-center font-bold text-2xl">ĐĂNG KÝ</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="mt-5">
+            <div class="space-y-3.5 w-[300px]">
+                <div>
+                    <app-custom-input
+                    (focus)="onFocus()"
+                    [control]="registerForm.controls.email"
+                    [label]="'Tên Đăng Nhập'"
+                    [type]="'text'"
+                    [placeholder]="'Email'"></app-custom-input>
+                </div>
+                <div>
+                    <app-custom-input
+                    (focus)="onFocus()"
+                    [control]="registerForm.controls.displayName"
+                    [label]="'Tên hiển thị'"
+                    [type]="'text'"
+                    [placeholder]="'Display name'"></app-custom-input>
+                </div>
+                <div>
+                    <app-custom-input
+                    (focus)="onFocus()"
+                    [control]="registerForm.controls.password"
+                    [label]="'Mật Khẩu'"
+                    [type]="'password'"
+                    [placeholder]="'Password'"></app-custom-input>
+                </div>
+                <div>
+                    <app-custom-input
+                    (focus)="onFocus()"
+                    [control]="registerForm.controls.confirmPassword"
+                    [label]="'Nhập lại mật khẩu'"
+                    [type]="'password'"
+                    [placeholder]="'Confirm Password'"></app-custom-input>
+                </div>           
+            </div>
+            <div *ngIf="errorMessage" class="text-red-400">
+                {{errorMessage}}
+            </div>
+            <br>
+            <hr>
+            <input type="submit" value="Đăng Ký"
+            [disabled]="registerForm.invalid"
+            class="btn mt-5 w-full btn-success text-white"/>
+            <p>{{registerForm.controls.confirmPassword.errors?.['nomatch']}}</p>
+        </form>
+    </div>
+</div>

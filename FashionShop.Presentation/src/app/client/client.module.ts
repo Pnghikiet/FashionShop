@@ -15,7 +15,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     CommonModule,
     ClientRoutingModule,
     LayoutModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
   ]
 })
 export class ClientModule { }

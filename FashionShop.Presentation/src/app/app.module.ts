@@ -8,6 +8,7 @@ import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { loadingInterceptor } from './interceptors/loading.interceptor';
 import { BrowserAnimationsModule, provideAnimations} from '@angular/platform-browser/animations';
+import { jwtInterceptor } from './interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BrowserAnimationsModule, provideAnimations} from '@angular/platform-bro
   ],
   providers: [
     provideAnimations(),
-    provideHttpClient(withInterceptors([loadingInterceptor]))
+    provideHttpClient(withInterceptors([loadingInterceptor])),
+    provideHttpClient(withInterceptors([jwtInterceptor]))
   ],
   bootstrap: [AppComponent]
 })

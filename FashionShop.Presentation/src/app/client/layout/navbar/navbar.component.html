@@ -31,14 +31,17 @@
                 <i class="fa-solid fa-cart-shopping text-xl"></i>
             </button>
         </div>
-        <!-- <div class="dropdown dropdown-center">
-            <div tabindex="0" role="button" class="hover:cursor-pointer">
-                <p class="text">Username <i class="fa-solid fa-caret-down"></i></p>
+        <ng-container *ngIf="(accountService.currentUSer$ | async) as user; else loginOrRegister">
+            <div class="dropdown dropdown-center">
+                <div tabindex="0" role="button" class="hover:cursor-pointer">
+                    <p class="text">{{user.email}}<i class="fa-solid fa-caret-down"></i></p>
+                </div>
+                <ul tabindex="0" class="menu dropdown-content bg-base-100 w-30 rounded-box z-1 content-center shadow-sm p-2 mt-2">
+                    <li><a (click)="accountService.Logout()">Đăng xuất</a></li>
+                </ul>
             </div>
-            <ul tabindex="0" class="menu dropdown-content bg-base-100 w-30 rounded-box z-1 content-center shadow-sm p-2 mt-2">
-                <li><a>Đăng xuất</a></li>
-            </ul>
-        </div> -->
+        </ng-container>
+        
         <!-- <div class="dropdown dropdown-end">
             <div tabindex="0" role="button" class="hover:cursor-pointer"><i class="fa-solid fa-ellipsis"></i></div>
             <ul tabindex="0" class="menu dropdown-content dropdown-center bg-base-100 w-30 rounded-box z-1 content-center">
@@ -48,10 +51,21 @@
             </ul>
         </div> -->
 
-        <div>
-            <a routerLink="/account/login" class="text-blue-500 hover:text-blue-700 underline">Đăng nhập</a>
-            /
-            <a routerLink="/account/register" class="text-blue-500 hover:text-blue-700 underline">Đăng ký</a>
-        </div>
+        <ng-template #loginOrRegister>
+            <div>
+                <a
+                routerLink="/account/login"
+                routerLinkActive #login="routerLinkActive"
+                [ngClass]="{'text-blue-700 pointer-events-none':login.isActive}"
+                class="text-blue-500 hover:text-blue-700 underline">Đăng nhập</a>
+                /
+                <a
+                routerLink="/account/register"
+                routerLinkActive #register="routerLinkActive"
+                [ngClass]="{'text-blue-700 pointer-events-none':register.isActive}"
+                class="text-blue-500 hover:text-blue-700 underline">Đăng ký</a>
+            </div>
+        </ng-template>
+        
     </div>
 </div>

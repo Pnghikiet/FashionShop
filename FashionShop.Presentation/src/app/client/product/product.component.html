@@ -65,7 +65,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-4 pt-4 gap-y-7" *ngIf="products.length > 0; else ProductsEmpty">
+    <div class="grid grid-cols-4 pt-4 gap-y-7" *ngIf="products; else ProductsEmpty">
         <ng-container *ngFor="let product of products">
             <app-product-item [productItem]="product"></app-product-item>
         </ng-container>

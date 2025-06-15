@@ -1,0 +1,21 @@
+<label class="floating-label">
+    <span>{{label}}</span>
+    <input (focus)="onFocus()" type="{{type}}" class="input" placeholder="{{placeholder}}" [formControl]="control">
+</label>
+<div class="mt-1.5">
+    <ng-container *ngIf="control?.touched">
+        <p class="text-red-400" *ngIf="control.errors?.['required']">Trường này là cần thiết</p>
+        <p class="text-red-400" *ngIf="control.errors?.['email']">Email không hợp lệ</p>
+        <p class="text-red-400" *ngIf="control.errors?.['nomatch']">Mật khẩu nhập lại không hợp lệ</p>
+        <span class="text-red-400" *ngIf="control.errors?.['pattern']">
+            Mật khẩu phải không hợp lệ, mật khẩu phải có:
+            <ul class="text-red-400 text-xs">
+                <li>tối thiểu 8 ký tự</li>
+                <li>tối thiểu 1 chữ in hoa</li>
+                <li>tối thiểu 1 chữ thường</li>
+                <li>tối thiểu 1 chữ số</li>
+                <li>tối thiểu 1 ký tự đặc biệt</li>
+            </ul>
+        </span>
+    </ng-container>
+</div>

@@ -20,13 +20,6 @@ namespace FashionShop.API.Controllers
             _mediatR = mediatR;
         }
 
-        [Authorize]
-        [HttpGet("test")]
-        public async Task<ActionResult> test()
-        {
-            return Ok("OK");
-        }
-
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
@@ -57,7 +50,7 @@ namespace FashionShop.API.Controllers
             }
             catch(Exception e)
             {
-                return BadRequest(e.Message);
+                return BadRequest(new {message = e.Message});
             }
         }
 

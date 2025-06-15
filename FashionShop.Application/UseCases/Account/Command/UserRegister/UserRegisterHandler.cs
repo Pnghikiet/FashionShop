@@ -39,12 +39,12 @@ namespace FashionShop.Application.UseCases.Account.Command.UserRegister
             var emailexist = await _user.FindByEmailAsync(user.Email);
 
             if (emailexist != null)
-                throw new Exception("Email Existed");
+                throw new Exception("Email này đã được đăng ký");
 
             var result = await _user.CreateAsync(user, request.Register.Password);
 
             if (!result.Succeeded)
-                throw new Exception("Register Failed");
+                throw new Exception("Đăng ký thất bại");
 
             await _user.AddToRoleAsync(user, _config["Roles:Client"]);
 
