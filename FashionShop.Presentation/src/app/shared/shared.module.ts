@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PagerComponent } from './pager/pager.component';
 import { CustomInputComponent } from './custom-input/custom-input.component';
+import { VnCurrencyPipe } from './custom-pipe/vn-currency.pipe';
 
 
 
 @NgModule({
   declarations: [
     PagerComponent,
-    CustomInputComponent
+    CustomInputComponent,
+    VnCurrencyPipe
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { CustomInputComponent } from './custom-input/custom-input.component';
     ReactiveFormsModule,
     CommonModule,
     PagerComponent,
-    CustomInputComponent
+    CustomInputComponent,
+    VnCurrencyPipe
   ]
 })
 export class SharedModule { }

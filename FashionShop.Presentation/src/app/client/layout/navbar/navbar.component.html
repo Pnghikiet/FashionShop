@@ -27,19 +27,28 @@
     <div class="navbar-end pr-12 space-x-4">
         <div class="indicator">
             <span class="indicator-item badge badge-xs badge-primary rounded-full size-6 text-sm ">9+</span>
-            <button class="btn btn-circle btn-ghost">
+            <button class="btn btn-circle btn-ghost"
+                    routerLink="/cart"
+                    routerLinkActive #cart="routerLinkActive"
+                    [ngClass]="{'pointer-events-none btn-active':cart.isActive}">
                 <i class="fa-solid fa-cart-shopping text-xl"></i>
             </button>
         </div>
         <ng-container *ngIf="(accountService.currentUSer$ | async) as user; else loginOrRegister">
             <div class="dropdown dropdown-center">
                 <div tabindex="0" role="button" class="hover:cursor-pointer">
-                    <p class="text">{{user.email}}<i class="fa-solid fa-caret-down"></i></p>
+                    <p class="text">{{user.displayName}}<i class="fa-solid fa-caret-down"></i></p>
                 </div>
                 <ul tabindex="0" class="menu dropdown-content bg-base-100 w-30 rounded-box z-1 content-center shadow-sm p-2 mt-2">
                     <li><a (click)="accountService.Logout()">Đăng xuất</a></li>
                 </ul>
             </div>
+            <!-- <details class="dropdown dropdown-center">
+                <summary class="">{{user.displayName}}</summary>
+                <ul class="menu dropdown-content bg-base-100 rounded-t-none shadow-sm p-2 mt-2 w-30">
+                    <li><a (click)="accountService.Logout()">Đăng xuất</a></li>
+                </ul>
+            </details> -->
         </ng-container>
         
         <!-- <div class="dropdown dropdown-end">

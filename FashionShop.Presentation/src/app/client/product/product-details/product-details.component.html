@@ -18,19 +18,19 @@
                 </div>
                 <div class="space-y-3">
                     <h1 class="text-2xl font-bold">Giá:</h1>
-                    <p class="ml-8 text-lg">{{product.price | currency}}</p>
+                    <p class="ml-8 text-lg">{{product.price | vnCurrency}}</p>
                 </div>
                 <div class="space-y-3">
                     <h1 class="text-2xl font-bold">SỐ LƯỢNG:</h1>
                     <div class="ml-8 flex space-x-2.5 items-center">
-                        <button class="items-center btn btn-ghost rounded-full fa-lg"><i class="fa-solid fa-minus"></i></button>
+                        <button (click)="OnDescrease()" class="items-center btn btn-ghost rounded-full fa-lg"><i class="fa-solid fa-minus"></i></button>
                         <p class="text-lg">{{quantity}}</p>
-                        <button class="items-center btn btn-ghost rounded-full fa-lg"><i class="fa-solid fa-plus "></i></button>
+                        <button (click)="OnIncrease()" class="items-center btn btn-ghost rounded-full fa-lg"><i class="fa-solid fa-plus "></i></button>
                     </div>
                 </div>
                 <div class="flex justify-evenly">
                     <button class="btn btn-warning w-44" routerLink="/products">Quay về <i class="fa-solid fa-arrow-left"></i></button>
-                    <button class="btn btn-primary w-48">Thêm vào giỏ hàng <i class="fa-solid fa-cart-plus"></i></button>
+                    <button (click)="OnAddItemToCart()" class="btn btn-primary w-48">Thêm vào giỏ hàng <i class="fa-solid fa-cart-plus"></i></button>
                 </div>
             </div>
         </div>

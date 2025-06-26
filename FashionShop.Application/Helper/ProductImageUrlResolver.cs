@@ -10,18 +10,18 @@ using System.Threading.Tasks;
 
 namespace FashionShop.Application.Helper
 {
-    public class ImageUrlResolver : IValueResolver<Product, ProductDto, string>
+    public class ProductImageUrlResolver : IValueResolver<Product, ProductDto, string>
     {
         private readonly IConfiguration _config;
 
-        public ImageUrlResolver(IConfiguration config)
+        public ProductImageUrlResolver(IConfiguration config)
         {
             _config = config;
         }
 
         public string Resolve(Product source, ProductDto destination, string destMember, ResolutionContext context)
         {
-            if(!string.IsNullOrEmpty(source.ImageUrl))
+            if (!string.IsNullOrEmpty(source.ImageUrl))
             {
                 return _config["APiUrl"] + source.ImageUrl;
             }

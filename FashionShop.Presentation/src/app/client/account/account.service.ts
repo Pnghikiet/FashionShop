@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { User } from '../../shared/models/user.model';
 import { BehaviorSubject, map } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AccountService {
   private currentUserSource = new BehaviorSubject<User | null>(null)
   currentUSer$ = this.currentUserSource.asObservable()
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   Login(value:any)
   {
@@ -40,6 +41,7 @@ export class AccountService {
   {
     localStorage.removeItem('token')
     this.currentUserSource.next(null)
+    this.ReloadCurrentRoute()
   }
 
   LoadCurrentUser()
@@ -49,5 +51,14 @@ export class AccountService {
         this.currentUserSource.next(response)
       })
     )
+  }
+
+  ReloadCurrentRoute()
+  {
+    const currentRoute = this.router.url
+
+    this.router.navigateByUrl('/',{skipLocationChange: true}).then(() => {
+      this.router.navigate([currentRoute])
+    })
   }
 }

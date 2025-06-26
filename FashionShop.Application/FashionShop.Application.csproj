@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="UseCases\Cart\**" />
     <Compile Remove="UseCases\Client\**" />
+    <EmbeddedResource Remove="UseCases\Cart\**" />
     <EmbeddedResource Remove="UseCases\Client\**" />
+    <None Remove="UseCases\Cart\**" />
     <None Remove="UseCases\Client\**" />
   </ItemGroup>
 

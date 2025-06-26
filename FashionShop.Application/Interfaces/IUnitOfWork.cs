@@ -13,6 +13,7 @@ namespace FashionShop.Application.Interfaces
         IGenericRepository<ProductBrand> ProductBrands { get; }
         IGenericRepository<ProductType> ProductTypes { get; }
         IGenericRepository<ProductSubType> ProductSubTypes { get; }
+        ICartRepository Carts { get; }
         Task<int> Complete();
     }
 }

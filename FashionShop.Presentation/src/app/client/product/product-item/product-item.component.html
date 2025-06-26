@@ -3,10 +3,10 @@
         <img src="{{productItem.imageUrl}}" alt="{{productItem.name}}" class="w-auto h-80 object-cover cursor-pointer" routerLink="/products/{{productItem.id}}">
     </figure>
     <div class="card-body">
-        <p class="card-title">{{productItem.name}}</p>
-        <p>{{productItem.price | currency}} </p>
+        <p class="card-title min-h-[110px]">{{productItem.name}}</p>
+        <p class="text-lg">{{productItem.price | vnCurrency}} </p>
         <div class="card-actions">
-            <button class="btn btn-primary w-full">Thêm vào giỏ hàng <i class="fa-solid fa-cart-plus"></i></button>
+            <button (click)="OnAddItemToCart()" class="btn btn-primary w-full">Thêm vào giỏ hàng <i class="fa-solid fa-cart-plus"></i></button>
         </div>
     </div>
 </div>

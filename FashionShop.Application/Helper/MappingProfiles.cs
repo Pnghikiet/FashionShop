@@ -21,8 +21,13 @@ namespace FashionShop.Application.Helper
             CreateMap<Product, ProductDto>()
                 .ForMember(dest => dest.ProductBrand, opt => opt.MapFrom(src => src.ProductBrand.Name))
                 .ForMember(dest => dest.ProductSubType, opt => opt.MapFrom(src => src.ProductSubType))
-                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom<ImageUrlResolver>());
+                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom<ProductImageUrlResolver>());
 
+            CreateMap<Cart, CartDto>();
+            CreateMap<CartItem, CartItemDto>()
+                .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.Product.Name))
+                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.Product.ImageUrl))
+                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom<CartItemImageUrlRersolver>());
             
         }
     }

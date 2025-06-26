@@ -39,7 +39,8 @@ namespace FashionShop.Application.UseCases.Account.Queries.GetCurrentUser
             {
                 UserId = user.Id,
                 Email = user.Email,
-                Token = _tokenService.CreateToken(user,role)
+                Token = _tokenService.CreateToken(user,role),
+                DisplayName = user.DisplayName
             };
         }
     }

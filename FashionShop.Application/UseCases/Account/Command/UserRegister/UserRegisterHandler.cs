@@ -54,7 +54,8 @@ namespace FashionShop.Application.UseCases.Account.Command.UserRegister
             {
                 UserId = user.Id,
                 Email = user.Email,
-                Token = _tokenService.CreateToken(user,role)
+                Token = _tokenService.CreateToken(user,role),
+                DisplayName = user.DisplayName,
             };
         }
     }
