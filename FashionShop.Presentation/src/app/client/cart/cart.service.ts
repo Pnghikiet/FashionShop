@@ -65,7 +65,7 @@ export class CartService {
     return this.http.delete<boolean>(this.baseUrl + `${userId}`)
   }
 
-  SetCart(cart: Cart)
+  SetCart(cart: Cart | null)
   {
     this.currentCartSource.next(cart)
   }

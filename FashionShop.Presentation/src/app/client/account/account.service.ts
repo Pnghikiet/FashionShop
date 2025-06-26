@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment';
 import { User } from '../../shared/models/user.model';
 import { BehaviorSubject, map } from 'rxjs';
 import { Router } from '@angular/router';
+import { CartService } from '../cart/cart.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,9 @@ export class AccountService {
   private currentUserSource = new BehaviorSubject<User | null>(null)
   currentUSer$ = this.currentUserSource.asObservable()
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router,
+    private cartService: CartService
+  ) { }
 
   Login(value:any)
   {
@@ -41,6 +44,7 @@ export class AccountService {
   {
     localStorage.removeItem('token')
     this.currentUserSource.next(null)
+    this.cartService.SetCart(null)
     this.ReloadCurrentRoute()
   }
 

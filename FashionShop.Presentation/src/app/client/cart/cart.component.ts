@@ -10,6 +10,7 @@ import { map, Observable } from 'rxjs';
 })
 export class CartComponent implements OnInit{
 
+  isLoaded: boolean = false
   
   constructor(public cartService: CartService, public guardClientService: GuardClientService){}
   

@@ -65,13 +65,20 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-4 pt-4 gap-y-7" *ngIf="products; else ProductsEmpty">
-        <ng-container *ngFor="let product of products">
-            <app-product-item [productItem]="product"></app-product-item>
-        </ng-container>
-    </div>
+    <ng-container *ngIf="products; else loading">
+        <div class="grid grid-cols-4 pt-4 gap-y-7" *ngIf="products.length > 0; else ProductsEmpty">
+            <ng-container *ngFor="let product of products">
+                <app-product-item [productItem]="product"></app-product-item>
+            </ng-container>
+        </div>
+    </ng-container>
+
     <ng-template #ProductsEmpty>
         <h2 class="text-center">Không có sản phẩm nào phù hợp</h2>
+    </ng-template>
+    
+    <ng-template #loading>
+        <h2 class="text-center font-bold text-lg">Đang tải sản phẩm</h2>
     </ng-template>
     
 
